@@ -1,96 +1,591 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Florent Lalot – Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- HEADER -->
     <header class="entete">
-        <div class="branding">
-            <h1 class="logo">Florent Lalot</h1>
-            <p>Né le 10 Juin 1990<br>
-            659 route des landettes 24260 Journiac<br>
-            06 71 74 85 78<br>
-            <a href="mailto:florent.lalot@gmail.com">florent.lalot@gmail.com</a>
-            </p>
-        </div>
-        <nav>
-            <a href="#about">À propos</a>
-            <a href="#projects">Projets</a>
-            <a href="#contact">Contact</a>
-        </nav>
+      <div class="branding">
+        <h1 class="logo">Florent Lalot</h1>
+        <p>
+          Né le 10 Juin 1990<br />
+          659 route des landettes 24260 Journiac<br />
+          06 71 74 85 78<br />
+          <a href="mailto:florent.lalot@gmail.com">florent.lalot@gmail.com</a>
+        </p>
+      </div>
+      <nav>
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#languages">Languages</a>
+        <a href="#projects">Projets</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#diplomes">Diplômes</a>
+        <a href="#loisirs">Loisirs</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero entete">
-        <h1>Chargé de transition numérique</h1>
-        <p>Des compétences numériques au service de nouveaux projets.</p>
-        <a class="btn" href="#projects">Voir mes projets</a>
+      <h1>Développeur IA</h1>
+      <p>Des compétences numériques au service de nouveaux projets.</p>
+      <a class="btn" href="#projects">Voir mes projets</a>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="hero entete">
-        <h2>À propos</h2>
-        <p>
-                    Fort d’un parcours riche et polyvalent, je mets mes savoir-faire techniques au service d’initiatives innovantes.<br><br>
-                    Chaque mission me permet de mettre les outils numériques au service de l’efficacité opérationnelle.<br><br>
-                    Aujourd’hui, je m’engage dans une nouvelle dynamique professionnelle, prêt à relever les défis du développement web, de la data, du cloud ou de la cybersécurité.<br><br>
-                    Mon objectif : contribuer activement à des projets porteurs de sens, en m’appuyant sur mes expériences passées et une volonté constante d’apprentissage.
-                </p>
+      <h2>À propos</h2>
+      <p>
+        Fort d’un parcours riche et polyvalent dans le numérique, je me forme
+        aujourd’hui au métier de Développeur IA au travers d’une formation
+        certifiante (OpenClassrooms – RNCP38038).<br /><br />
+        Cette formation me permet de consolider mes compétences en développement
+        web, en analyse de données et en intelligence artificielle : intégration
+        d’API, segmentation d’images, évaluation de modèles, gestion sécurisée
+        des accès.<br /><br />
+        Chaque projet est pour moi l’occasion de mettre les outils numériques et
+        l’intelligence artificielle au service de l’efficacité
+        opérationnelle.<br /><br />
+        Mon objectif : concevoir des solutions intelligentes, utiles et
+        porteuses de sens, en m’appuyant sur mes expériences passées et une
+        volonté constante d’apprentissage.
+      </p>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section entete">
-        <h2>Découvrez mes projets numériques</h2>
-
-        <div class="grid">
-
-            <div class="card slide">
-                <h3>Informatique décisionnelle</h3><br>
-                <p>
-                    Création de rapports sur mesure et tableaux de bord clairs et dynamiques pour une prise de décision rapide et éclairée :<br><br>
-                    - Incluant l’analyse des indicateurs clés de performance (KPI) liés à l’activité commerciale,<br><br>
-                    - Une analyse précise des achats,<br><br>
-                    - L’évaluation de la performance des collaborateurs,<br><br>
-                </p>
-            </div>
-
-            <div class="card slide">
-                <h3>Informatique de gestion</h3><br>
-                <p>
-                    Suivi opérationnel des outils métiers.<br><br>
-                    Collaboration quotidienne avec l’éditeur des outils (ERP, portails webs) pour garantir la cohérence
-                    entre besoins utilisateurs et évolutions techniques.<br><br>
-                    Mise en place de bonnes pratiques d'utilisation, vérification des méthodes appliquées et création d’une bibliothèque pour centraliser les procédures et faciliter la transmission des savoirs.
-                </p>
-            </div>
-
-            <div class="card slide">
-                <h3>Communication numérique</h3><br>
-                <p>
-                    Création de vidéos pédagogiques pour expliquer les bonnes pratiques, valoriser les projets numériques
-                    et faciliter l’appropriation des outils.
-                </p>
-            </div>
-
+    <!-- COMPÉTENCES TECHNIQUES -->
+    <section id="skills" class="section entete">
+      <h2>Compétences techniques</h2>
+      <div class="grid">
+        <div class="card slide static-card">
+          <h3>Analyse de données</h3>
+          <br />
+          <p>SQL</p>
         </div>
+        <div class="card slide static-card">
+          <h3>Reporting</h3>
+          <br />
+          <p>Crystal Reports, Report Builder, MyReport, Power BI</p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Développement web</h3>
+          <br />
+          <p>Manipulation du DOM, API REST, gestion de l’authentification</p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Environnement</h3>
+          <br />
+          <p>Node.js / npm (lancement et test de backend Express)</p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Intelligence Artificielle</h3>
+          <br />
+          <p>
+            Segmentation d'image (API), évaluation de modèles, gestion sécurisée
+            d'API
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages" class="section entete">
+      <h2>Languages</h2>
+      <div class="languages-list">
+        <span class="language-badge slide">HTML</span>
+        <span class="language-badge slide">CSS</span>
+        <span class="language-badge slide">JAVASCRIPT</span>
+        <span class="language-badge slide">PYTHON</span>
+      </div>
+    </section>
+
+    <!-- PROJETS RÉALISÉS -->
+    <section id="projects" class="section entete">
+      <h2>Projets Réalisés</h2>
+
+      <div class="projects-slider">
+        <button
+          class="slider-btn prev"
+          data-slider="projects"
+          aria-label="Projet précédent"
+        >
+          &#10094;
+        </button>
+
+        <div class="projects-viewport">
+          <div class="projects-track">
+            <!-- PROJET 1 : AGS FACILITIES -->
+            <div class="project-panel">
+              <h3 class="project-title">
+                Expérience de 4 ans chez AGS Facilities
+              </h3>
+
+              <div class="grid">
+                <div
+                  class="card slide"
+                  data-project="ags"
+                  data-category="decisionnelle"
+                >
+                  <h3>Informatique décisionnelle</h3>
+                  <br />
+                  <p>
+                    Création de rapports sur mesure et tableaux de bord clairs
+                    et dynamiques pour une prise de décision rapide et éclairée
+                    :<br /><br />
+                    - Incluant l’analyse des indicateurs clés de performance
+                    (KPI) liés à l’activité commerciale,<br /><br />
+                    - Une analyse précise des achats,<br /><br />
+                    - L’évaluation de la performance des collaborateurs.<br /><br />
+                  </p>
+                </div>
+
+                <div
+                  class="card slide"
+                  data-project="ags"
+                  data-category="gestion"
+                >
+                  <h3>Informatique de gestion</h3>
+                  <br />
+                  <p>
+                    Suivi opérationnel des outils métiers.<br /><br />
+                    Collaboration quotidienne avec l’éditeur des outils (ERP,
+                    portails webs) pour garantir la cohérence entre besoins
+                    utilisateurs et évolutions techniques.<br /><br />
+                    Mise en place de bonnes pratiques d'utilisation,
+                    vérification des méthodes appliquées et création d’une
+                    bibliothèque pour centraliser les procédures et faciliter la
+                    transmission des savoirs.
+                  </p>
+                </div>
+
+                <div
+                  class="card slide"
+                  data-project="ags"
+                  data-category="communication"
+                >
+                  <h3>Communication numérique</h3>
+                  <br />
+                  <p>
+                    Création de vidéos pédagogiques pour expliquer les bonnes
+                    pratiques, valoriser les projets numériques et faciliter
+                    l’appropriation des outils.
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARROUSEL AGS -->
+              <div class="carousel-section fade hidden" data-carousel="ags">
+                <div class="carousel-container">
+                  <div class="carousel-track"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PROJET 2 : FORMATION DÉVELOPPEUR IA -->
+            <div class="project-panel">
+              <h3 class="project-title">Formation Développeur IA</h3>
+
+              <div class="grid">
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet1"
+                >
+                  <h3>Projet 1</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet2"
+                >
+                  <h3>Projet 2</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet3"
+                >
+                  <h3>Projet 3</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet4"
+                >
+                  <h3>Projet 4</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet5"
+                >
+                  <h3>Projet 5</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet6"
+                >
+                  <h3>Projet 6</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet7"
+                >
+                  <h3>Projet 7</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet8"
+                >
+                  <h3>Projet 8</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet9"
+                >
+                  <h3>Projet 9</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet10"
+                >
+                  <h3>Projet 10</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet11"
+                >
+                  <h3>Projet 11</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="formation"
+                  data-category="projet12"
+                >
+                  <h3>Projet 12</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+              </div>
+
+              <!-- CARROUSEL FORMATION -->
+              <div
+                class="carousel-section fade hidden"
+                data-carousel="formation"
+              >
+                <div class="carousel-container">
+                  <div class="carousel-track"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PROJET 3 : PROJETS PERSONNELS -->
+            <div class="project-panel">
+              <h3 class="project-title">Projets personnels</h3>
+
+              <div class="grid">
+                <div
+                  class="card slide"
+                  data-project="perso"
+                  data-category="projet1"
+                >
+                  <h3>Projet 1</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="perso"
+                  data-category="projet2"
+                >
+                  <h3>Projet 2</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="perso"
+                  data-category="projet3"
+                >
+                  <h3>Projet 3</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="perso"
+                  data-category="projet4"
+                >
+                  <h3>Projet 4</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+                <div
+                  class="card slide"
+                  data-project="perso"
+                  data-category="projet5"
+                >
+                  <h3>Projet 5</h3>
+                  <br />
+                  <p>À venir…</p>
+                </div>
+              </div>
+
+              <!-- CARROUSEL PROJETS PERSONNELS -->
+              <div class="carousel-section fade hidden" data-carousel="perso">
+                <div class="carousel-container">
+                  <div class="carousel-track"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="slider-btn next"
+          data-slider="projects"
+          aria-label="Projet suivant"
+        >
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- EXPÉRIENCES PROFESSIONNELLES -->
+    <section id="experiences" class="section entete">
+      <h2>Expériences Professionnelles</h2>
+
+      <div class="exp-slider">
+        <button
+          class="slider-btn prev"
+          data-slider="experiences"
+          aria-label="Expérience précédente"
+        >
+          &#10094;
+        </button>
+
+        <div class="exp-viewport">
+          <div class="exp-track">
+            <div class="card exp-card">
+              <h3>AGEMA SERVICES / AGS FACILITIES | CDI</h3>
+              <p class="exp-dates">JANVIER 2022 - FÉVRIER 2026</p>
+              <p>
+                Interlocuteur privilégié entre l'entreprise qui développe les
+                outils numériques et les utilisateurs,<br /><br />
+                Analyste DATA,<br /><br />
+                Consultant BDD,<br /><br />
+                Paramétreur, Testeur ERP et Portails Web,<br /><br />
+                Monteur vidéo,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>DDETSPP | CDD DE 3 MOIS</h3>
+              <p class="exp-dates">OCTOBRE - DÉCEMBRE 2021</p>
+              <p>
+                Agent Contractuel à la Direction Départementale de l’Emploi, du
+                Travail, des Solidarités et de la Protection des Populations
+                service Santé et Protection Animale.<br /><br />
+                Réalisation de taches administratives, accueille téléphonique,
+                assistance secrétaire et comptable,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>SMD3 | CDD DE 5 MOIS</h3>
+              <p class="exp-dates">AVRIL - AOÛT 2021</p>
+              <p>
+                Technicien Itinérant au Syndicat Mixte Départemental des Déchets
+                de la Dordogne dans la mise en place et l’installation des
+                contrôles d’accès sur les conteneurs dans le cadre du
+                développement de la redevance incitative,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>CART'IMAGES EDITIONS | CDI</h3>
+              <p class="exp-dates">MARS 2015 - FÉVRIER 2021</p>
+              <p>
+                Préparateur de Commandes chez Cart’images Éditions à Notre Dame
+                de Sanilhac Cré@Vallée Sud,<br /><br />
+                Impression de textes personnalisés,<br /><br />
+                Maintenance de presses numériques,<br /><br />
+                Gestion de stocks,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>Exploitation agricole familiale</h3>
+              <p>
+                Durant 1 an j’ai travaillé avec mon père qui est agriculteur,
+                éleveur porcin à développer son activité de découpe et de vente
+                direct,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>LA FEDD | CDD DE 12 MOIS</h3>
+              <p class="exp-dates">2013 - 2014</p>
+              <p>
+                Préparateur de commandes à la Fabrique Electronique de Dordogne,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>Communauté d'Agglomération Périgourdine | STAGE</h3>
+              <p class="exp-dates">2012</p>
+              <p>
+                Stage effectué à la CAP (Communauté d’Agglomération
+                Périgourdine) à Périgueux durant 8 semaines dans le cadre du
+                stage de 2ème année de BTS Informatique de Gestion ou j’ai pu
+                créer une application en interne,
+              </p>
+            </div>
+
+            <div class="card exp-card">
+              <h3>IRCF | STAGE</h3>
+              <p class="exp-dates">2011</p>
+              <p>
+                Stage effectué à IRCF à Marsac durant 8 semaines dans le cadre
+                du stage de 1er année de BTS Informatique de Gestion ou j’ai pu
+                créer et mettre à jour des sites internet,
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="slider-btn next"
+          data-slider="experiences"
+          aria-label="Expérience suivante"
+        >
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- DIPLÔMES -->
+    <section id="diplomes" class="section entete">
+      <h2>Diplômes</h2>
+      <div class="grid">
+        <div class="card slide static-card">
+          <h3>Formation Développeur IA</h3>
+          <br />
+          <p>
+            OpenClassrooms<br /><br />
+            Formation certifiante RNCP38038<br /><br />
+            2026 - 2027
+          </p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Brevet de Technicien Supérieur</h3>
+          <br />
+          <p>
+            Lycée Bertran de Born à Périgueux<br /><br />
+            BTS Informatique de Gestion option Développeur d’Applications<br /><br />
+            2010 - 2012
+          </p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Baccalauréat</h3>
+          <br />
+          <p>
+            Lycée Giraut de Borneil à Excideuil<br /><br />
+            Baccalauréat Technologique option Comptabilité et Finances des
+            Entreprises<br /><br />
+            2007 - 2010
+          </p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Brevet d’Étude Professionnel</h3>
+          <br />
+          <p>
+            Lycée Pablo Picasso à Périgueux<br /><br />
+            BEP Métiers de la Comptabilité<br /><br />
+            2004 - 2007
+          </p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Brevet des Collèges</h3>
+          <br />
+          <p>
+            Collège Leroi Ghouran au Bugue<br /><br />
+            2001 - 2004
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOISIRS -->
+    <section id="loisirs" class="section entete">
+      <h2>Loisirs</h2>
+      <div class="grid">
+        <div class="card slide static-card">
+          <h3>Sport</h3>
+          <br />
+          <p>
+            VTT / Cyclisme / Football / Trail / Salle de sport / Cardio,<br /><br />Randonnée,
+          </p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Numérique &amp; Culture</h3>
+          <br />
+          <p>Informatique,<br /><br />Cinéma,</p>
+        </div>
+        <div class="card slide static-card">
+          <h3>Bricolage</h3>
+          <br />
+          <p>
+            Réparation et travaux manuels sommaire Téléphonique / Informatique /
+            Mécanique
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section entete">
-        <h2>Contact</h2>
-        <p>Envie d’échanger ou de collaborer ?</p>
-        <a class="btn" href="mailto:florent.lalot@gmail.com">Me contacter</a>
+      <h2>Contact</h2>
+      <p>Envie d’échanger ou de collaborer ?</p>
+      <a class="btn" href="mailto:florent.lalot@gmail.com">Me contacter</a>
     </section>
 
     <footer>
-        <p>© 2026 Florent Lalot – Portfolio</p>
+      <p>© 2026 Florent Lalot – Portfolio</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
