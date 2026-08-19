@@ -81,6 +81,38 @@ const images = {
 };
 
 // -------------------------
+// ÉTAPES RÉALISÉES DES PROJETS DE FORMATION
+// -------------------------
+// Texte affiché entre les tuiles et le carrousel quand on clique sur un projet.
+// Remplis les textes au fur et à mesure de ta formation.
+// Tu peux utiliser <br> pour les sauts de ligne, par exemple :
+// projet1: "Étape 1 : analyse du besoin,<br>Étape 2 : développement de l'API,<br>Étape 3 : tests et validation."
+
+const steps = {
+  formation: {
+    projet1: "",
+    projet2: "",
+    projet3: "",
+    projet4: "",
+    projet5: "",
+    projet6: "",
+    projet7: "",
+    projet8: "",
+    projet9: "",
+    projet10: "",
+    projet11: "",
+    projet12: "",
+  },
+  perso: {
+    projet1: "",
+    projet2: "",
+    projet3: "",
+    projet4: "",
+    projet5: "",
+  },
+};
+
+// -------------------------
 // CARROUSELS (un par projet)
 // -------------------------
 
@@ -116,6 +148,16 @@ function loadImages(project, category) {
   });
 }
 
+// Charge le texte des étapes réalisées dans le bloc du projet
+function loadSteps(project, category) {
+  const stepsSection = document.querySelector(`[data-steps="${project}"]`);
+  if (!stepsSection) return;
+
+  const text = (steps[project] && steps[project][category]) || "";
+  stepsSection.querySelector("p").innerHTML =
+    text !== "" ? text : "Description des étapes à venir…";
+}
+
 // -------------------------
 // GESTION DU CLIC SUR LES CARDS
 // -------------------------
@@ -127,18 +169,22 @@ document.querySelectorAll(".card[data-project]").forEach((card) => {
     const carouselSection = document.querySelector(
       `[data-carousel="${project}"]`,
     );
+    const stepsSection = document.querySelector(`[data-steps="${project}"]`);
     if (!carouselSection) return;
 
-    // Si on clique sur la même card → on ouvre/ferme le carrousel
+    // Si on clique sur la même card → on ouvre/ferme le carrousel (et les étapes)
     if (category === lastCategory[project]) {
       carouselSection.classList.toggle("hidden");
+      if (stepsSection) stepsSection.classList.toggle("hidden");
       return;
     }
 
-    // Sinon → on charge les images et on affiche le carrousel
+    // Sinon → on charge les étapes + les images et on affiche le tout
     lastCategory[project] = category;
     loadImages(project, category);
+    loadSteps(project, category);
     carouselSection.classList.remove("hidden");
+    if (stepsSection) stepsSection.classList.remove("hidden");
   });
 });
 
