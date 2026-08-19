@@ -460,3 +460,34 @@ footer {
     min-width: 260px;
   }
 }
+
+/* ===========================
+   ÉTAPES RÉALISÉES (Formation Développeur IA)
+   Texte affiché entre les tuiles et le carrousel
+   =========================== */
+.project-steps {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 25px 30px;
+  margin: 40px auto 0;
+  max-width: 900px;
+}
+
+.project-steps.hidden {
+  display: none;
+}
+
+/* ===========================
+   ANCRES : position d'arrivée des sections
+   Le header sticky (~188px) masquait le titre des sections
+   quand on cliquait sur un lien du menu ou "Voir mes projets".
+   scroll-margin-top fait arriver la section sous le header.
+   =========================== */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 200px;
+}
