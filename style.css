@@ -619,3 +619,32 @@ section[id] {
     height: 200px;
   }
 }
+
+/* ===========================
+   CORRECTIF MOBILE : débordement des tuiles projets
+   Les tuiles avaient une largeur minimale de 260px, supérieure à
+   la place disponible entre les flèches : elles débordaient sur le
+   panneau du projet voisin. Sur mobile, la grille passe en une
+   colonne pleine largeur et les flèches sont affinées.
+   =========================== */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-btn {
+    width: 32px;
+    min-width: 32px;
+    font-size: 1.1rem;
+    padding: 10px 0;
+  }
+
+  .project-panel {
+    padding: 0 4px;
+  }
+
+  .exp-card {
+    flex: 0 0 240px;
+    min-width: 240px;
+  }
+}
