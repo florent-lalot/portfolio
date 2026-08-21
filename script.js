@@ -12,6 +12,28 @@ const observer = new IntersectionObserver((entries) => {
 elements.forEach((el) => observer.observe(el));
 
 // -------------------------
+// MENU MOBILE (hamburger)
+// -------------------------
+
+const navToggle = document.querySelector(".nav-toggle");
+const headerNav = document.querySelector("header nav");
+
+if (navToggle && headerNav) {
+  navToggle.addEventListener("click", () => {
+    const open = headerNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", open);
+  });
+
+  // Referme le menu quand on clique sur un lien
+  headerNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      headerNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// -------------------------
 // IMAGES DES CARROUSELS
 // -------------------------
 // Chaque projet possède son propre carrousel.
@@ -173,8 +195,14 @@ const lastCategory = {};
 // la boucle ne "revient au début" qu'une fois toutes les images parcourues.
 const CAROUSEL_SPEED = 100;
 
-// Largeur d'une image (450px) + espace entre les images (20px)
-const CAROUSEL_IMAGE_STEP = 470;
+// Largeur d'une image + espace entre les images (20px).
+// La largeur est lue sur l'image affichée : 450px sur ordinateur,
+// 300px sur mobile (voir la règle @media dans style.css).
+function carouselImageStep(track) {
+  const img = track.querySelector("img");
+  const width = img ? parseFloat(getComputedStyle(img).width) : 450;
+  return width + 20;
+}
 
 // Charge les images d'une catégorie dans le carrousel du projet
 function loadImages(project, category) {
@@ -208,7 +236,7 @@ function loadImages(project, category) {
   // Distance exacte d'une série complète d'images :
   // le défilement parcourt toutes les images avant de boucler,
   // et la durée est calculée pour garder une vitesse constante.
-  const distance = list.length * CAROUSEL_IMAGE_STEP;
+  const distance = list.length * carouselImageStep(track);
   track.style.setProperty("--scroll-distance", `-${distance}px`);
   track.style.animation = `scroll ${distance / CAROUSEL_SPEED}s linear infinite`;
 }

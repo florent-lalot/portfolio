@@ -548,3 +548,74 @@ section[id] {
   object-fit: cover;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
+/* ===========================
+   NAVIGATION MOBILE
+   Bouton hamburger + menu déroulant sous 768px.
+   =========================== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 14px 20px;
+  }
+
+  .branding p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 12px;
+  }
+
+  header nav.open {
+    display: flex;
+  }
+
+  header nav a {
+    margin: 0;
+    padding: 12px 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 1.05rem;
+  }
+
+  /* Ajustements généraux sur petit écran */
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .photo-profil {
+    width: 220px;
+    height: 220px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  section[id] {
+    scroll-margin-top: 150px;
+  }
+
+  .carousel-track img {
+    width: 300px;
+    height: 200px;
+  }
+}
