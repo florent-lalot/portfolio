@@ -55,7 +55,7 @@ nav a:hover {
 
 .hero h2 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 .hero h1 {
   font-size: 2.4rem;
@@ -89,6 +89,7 @@ nav a:hover {
   color: var(--accent);
   text-align: center;
   font-size: 1.5rem;
+  margin-bottom: 40px;
 }
 .carousel-section.hidden {
   display: none;
@@ -490,4 +491,60 @@ html {
 
 section[id] {
   scroll-margin-top: 200px;
+}
+
+/* ===========================
+   CARROUSELS : boucle complète à vitesse constante
+   La distance de défilement (--scroll-distance) est calculée par
+   script.js selon le nombre d'images : toutes les images sont
+   parcourues avant que la boucle ne reprenne, sans retour visible
+   au début et à la même vitesse pour tous les carrousels.
+   =========================== */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--scroll-distance, -50%));
+  }
+}
+
+/* Largeur de lecture du texte À propos */
+#about p {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+/* Sous-titre discret sous un titre de section */
+.section-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: -25px auto 30px;
+  opacity: 0.75;
+}
+
+/* Espacement du bloc d'accueil (titre Développeur IA) */
+.hero h1 {
+  margin-bottom: 25px;
+}
+
+.hero h1 + p {
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  margin-top: 30px;
+}
+
+/* Photo de profil en haut de page */
+.photo-profil {
+  display: block;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
