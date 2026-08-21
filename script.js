@@ -226,8 +226,8 @@ function loadImages(project, category) {
     return;
   }
 
-  // Ajoute les images (2 fois pour un défilement infini sans à-coup)
-  [...list, ...list].forEach((src) => {
+  // Ajoute une première série d'images
+  list.forEach((src) => {
     const img = document.createElement("img");
     img.src = src;
     track.appendChild(img);
@@ -237,7 +237,29 @@ function loadImages(project, category) {
   // le défilement parcourt toutes les images avant de boucler,
   // et la durée est calculée pour garder une vitesse constante.
   const distance = list.length * carouselImageStep(track);
+
+  // Duplique la série autant de fois que nécessaire pour que la piste
+  // couvre toujours la fenêtre visible : la boucle reste fluide même
+  // avec peu d'images ou un écran large.
+  const container = carouselSection.querySelector(".carousel-container");
+  const visibleWidth = container.offsetWidth || window.innerWidth;
+  let copies = 1;
+  while (copies < 2 || copies * distance < distance + visibleWidth) {
+    list.forEach((src) => {
+      const img = document.createElement("img");
+      img.src = src;
+      track.appendChild(img);
+    });
+    copies++;
+  }
+
   track.style.setProperty("--scroll-distance", `-${distance}px`);
+
+  // Redémarre l'animation depuis le début : sans cela, l'animation
+  // continue là où elle en était et le carrousel s'ouvre au milieu
+  // de la série (impression de "repartir au début trop tôt").
+  track.style.animation = "none";
+  void track.offsetWidth; // force le navigateur à prendre en compte l'arrêt
   track.style.animation = `scroll ${distance / CAROUSEL_SPEED}s linear infinite`;
 }
 
