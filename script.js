@@ -99,8 +99,21 @@ const images = {
       "img/formation3-4.png",
       "img/formation3-5.png",
     ],
-    projet4: [],
-    projet5: [],
+    projet4: [
+      "img/formation4-1.png",
+      "img/formation4-2.png",
+      "img/formation4-3.png",
+      "img/formation4-4.png",
+      "img/formation4-5.png",
+    ],
+    projet5: [
+      "img/formation5-1.png",
+      "img/formation5-2.png",
+      "img/formation5-3.png",
+      "img/formation5-4.png",
+      "img/formation5-5.png",
+      "img/formation5-6.png",
+    ],
     projet6: [],
     projet7: [],
     projet8: [],
@@ -159,8 +172,10 @@ const steps = {
       "Développement d'un pipeline Python consommant l'API d'inférence Hugging Face (SegFormer) pour segmenter automatiquement les vêtements sur des photos d'influenceurs. Évaluation rigoureuse des performances (métrique IoU, méthodologie validation/test), gestion robuste des erreurs réseau, et estimation chiffrée du coût de passage à l'échelle (500 000 images/mois)",
     projet3:
       "Application de recherche de recettes développée avec React et Next.js à partir d'une maquette Figma : recherche en temps réel, filtres par tags cumulables et navigation dynamique entre 50 recettes.",
-    projet4: "",
-    projet5: "",
+    projet4:
+      "Tableau de bord d'analytics sportif développée avec React et Next.js, enrichi de deux fonctionnalités IA construites sur l'API Mistral : un chatbot coach qui répond aux questions d'entraînement à partir des données réelles de l'utilisateur, et un générateur de programme d'entraînement personnalisé.",
+    projet5:
+      "Conception d'une base de données relationnelle normalisée (3NF) pour une agence immobilière fictive, à partir de données DVF, INSEE et data.gouv (plus de 34 000 transactions). Modélisation UML, mise en conformité RGPD, déploiement sur Databricks (Unity Catalog, tables Delta) et rédaction de 12 requêtes SQL avancées (CTE, fonctions de fenêtrage) pour analyser le marché immobilier régional.",
     projet6: "",
     projet7: "",
     projet8: "",
