@@ -176,7 +176,8 @@ const steps = {
       "Tableau de bord d'analytics sportif développée avec React et Next.js, enrichi de deux fonctionnalités IA construites sur l'API Mistral : un chatbot coach qui répond aux questions d'entraînement à partir des données réelles de l'utilisateur, et un générateur de programme d'entraînement personnalisé.",
     projet5:
       "Conception d'une base de données relationnelle normalisée (3NF) pour une agence immobilière fictive, à partir de données DVF, INSEE et data.gouv (plus de 34 000 transactions). Modélisation UML, mise en conformité RGPD, déploiement sur Databricks (Unity Catalog, tables Delta) et rédaction de 12 requêtes SQL avancées (CTE, fonctions de fenêtrage) pour analyser le marché immobilier régional.",
-    projet6: "",
+    projet6:
+      "Fiabilisation et analyse des données d'un caviste : rapprochement de 3 sources (ERP, site e-commerce, table de liaison), correction de 12 types d'anomalies, analyse du CA, des stocks et des marges, et recommandations ERP et RGPD présentées en comité de direction. Python · pandas · Plotly · Seaborn",
     projet7: "",
     projet8: "",
     projet9: "",
