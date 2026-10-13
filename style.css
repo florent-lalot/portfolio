@@ -648,3 +648,56 @@ section[id] {
     min-width: 240px;
   }
 }
+
+/* ===========================
+   FLÈCHES « PROJETS RÉALISÉS » : au niveau du titre du projet
+   Les flèches ne sont plus centrées en hauteur à côté des tuiles :
+   elles sont alignées sur la ligne du titre (ex. « Expérience de 4 ans
+   chez AGS Facilities »). Le calcul du margin-top centre le bouton
+   sur la première ligne du titre (1.3rem × interligne 1.7).
+   Les flèches des expériences professionnelles ne changent pas.
+   =========================== */
+.projects-slider .slider-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0;
+  margin-top: calc((1.3rem * 1.7 - 44px) / 2);
+}
+
+@media (max-width: 768px) {
+  /* Sur mobile le titre peut passer sur deux lignes : on lui réserve
+     toujours la hauteur de deux lignes et on centre les flèches dessus. */
+  .project-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(2 * 1.3rem * 1.7);
+  }
+
+  .projects-slider .slider-btn {
+    height: 36px;
+    margin-top: calc((2 * 1.3rem * 1.7 - 36px) / 2);
+  }
+}
+
+
+/* ============================================================
+   CARROUSELS : images affichées en entier (sans rognage)
+   Hauteur fixe, largeur automatique selon la proportion de l'image.
+   ============================================================ */
+.carousel-track img {
+  width: auto;
+  height: 300px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .carousel-track img {
+    width: auto;
+    height: 200px;
+  }
+}

@@ -114,7 +114,20 @@ const images = {
       "img/formation5-5.png",
       "img/formation5-6.png",
     ],
-    projet6: [],
+    projet6: [
+      "img/formation6-1.png",
+      "img/formation6-2.png",
+      "img/formation6-3.png",
+      "img/formation6-4.png",
+      "img/formation6-5.png",
+      "img/formation6-6.png",
+      "img/formation6-7.png",
+      "img/formation6-8.png",
+      "img/formation6-9.png",
+      "img/formation6-10.png",
+      "img/formation6-11.png",
+      "img/formation6-12.png",
+    ],
     projet7: [],
     projet8: [],
     projet9: [],
@@ -211,13 +224,71 @@ const lastCategory = {};
 // la boucle ne "revient au début" qu'une fois toutes les images parcourues.
 const CAROUSEL_SPEED = 100;
 
-// Largeur d'une image + espace entre les images (20px).
-// La largeur est lue sur l'image affichée : 450px sur ordinateur,
-// 300px sur mobile (voir la règle @media dans style.css).
-function carouselImageStep(track) {
-  const img = track.querySelector("img");
-  const width = img ? parseFloat(getComputedStyle(img).width) : 450;
-  return width + 20;
+// Les images du carrousel gardent leur proportion naturelle (hauteur fixe,
+// largeur automatique, voir style.css) : elles s'affichent donc en entier,
+// sans rognage. La largeur d'une série d'images n'est connue qu'une fois
+// les images chargées ; la distance de défilement est calculée à ce moment.
+function buildCarousel(track, list) {
+  const carouselSection = track.closest("[data-carousel]");
+  const container = carouselSection.querySelector(".carousel-container");
+
+  // Retire les images, puis ajoute une première série
+  track.style.animation = "none";
+  track.innerHTML = "";
+  const first = list.map((src) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "";
+    track.appendChild(img);
+    return img;
+  });
+
+  const token = String(Date.now() + Math.random());
+  track.dataset.loadToken = token;
+
+  const whenLoaded = (img) =>
+    new Promise((resolve) => {
+      if (img.complete && img.naturalWidth) return resolve();
+      img.addEventListener("load", resolve, { once: true });
+      img.addEventListener("error", resolve, { once: true });
+    });
+
+  Promise.all(first.map(whenLoaded)).then(() => {
+    // Une autre catégorie a été chargée entre-temps : on ignore
+    if (track.dataset.loadToken !== token) return;
+
+    // Largeur réelle de chaque image = hauteur affichée x proportion naturelle
+    // (calculée ainsi, elle reste juste même si le carrousel est masqué).
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 20;
+    let distance = 0;
+    first.forEach((img) => {
+      const h = parseFloat(getComputedStyle(img).height) || 300;
+      const ratio = img.naturalWidth && img.naturalHeight
+        ? img.naturalWidth / img.naturalHeight
+        : 1.5;
+      distance += h * ratio + gap;
+    });
+
+    // Duplique la série pour que la piste couvre toujours la fenêtre visible
+    const visibleWidth = container.offsetWidth || window.innerWidth;
+    let copies = 1;
+    while (copies < 2 || copies * distance < distance + visibleWidth) {
+      list.forEach((src) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "";
+        track.appendChild(img);
+      });
+      copies++;
+    }
+
+    track.style.setProperty("--scroll-distance", `-${distance}px`);
+
+    // Redémarre l'animation depuis le début
+    track.style.animation = "none";
+    void track.offsetWidth;
+    track.style.animation = `scroll ${distance / CAROUSEL_SPEED}s linear infinite`;
+  });
 }
 
 // Charge les images d'une catégorie dans le carrousel du projet
@@ -228,13 +299,14 @@ function loadImages(project, category) {
   if (!carouselSection) return;
 
   const track = carouselSection.querySelector(".carousel-track");
-  track.innerHTML = ""; // reset
-
   const list = (images[project] && images[project][category]) || [];
+  track._list = list;
 
   // Aucune image pour le moment
   if (list.length === 0) {
+    track.dataset.loadToken = "";
     track.style.animation = "none";
+    track.innerHTML = "";
     const message = document.createElement("p");
     message.className = "carousel-empty";
     message.textContent = "Images à venir…";
@@ -242,42 +314,24 @@ function loadImages(project, category) {
     return;
   }
 
-  // Ajoute une première série d'images
-  list.forEach((src) => {
-    const img = document.createElement("img");
-    img.src = src;
-    track.appendChild(img);
-  });
-
-  // Distance exacte d'une série complète d'images :
-  // le défilement parcourt toutes les images avant de boucler,
-  // et la durée est calculée pour garder une vitesse constante.
-  const distance = list.length * carouselImageStep(track);
-
-  // Duplique la série autant de fois que nécessaire pour que la piste
-  // couvre toujours la fenêtre visible : la boucle reste fluide même
-  // avec peu d'images ou un écran large.
-  const container = carouselSection.querySelector(".carousel-container");
-  const visibleWidth = container.offsetWidth || window.innerWidth;
-  let copies = 1;
-  while (copies < 2 || copies * distance < distance + visibleWidth) {
-    list.forEach((src) => {
-      const img = document.createElement("img");
-      img.src = src;
-      track.appendChild(img);
-    });
-    copies++;
-  }
-
-  track.style.setProperty("--scroll-distance", `-${distance}px`);
-
-  // Redémarre l'animation depuis le début : sans cela, l'animation
-  // continue là où elle en était et le carrousel s'ouvre au milieu
-  // de la série (impression de "repartir au début trop tôt").
-  track.style.animation = "none";
-  void track.offsetWidth; // force le navigateur à prendre en compte l'arrêt
-  track.style.animation = `scroll ${distance / CAROUSEL_SPEED}s linear infinite`;
+  buildCarousel(track, list);
 }
+
+// La hauteur des images change au passage sur mobile (768px) :
+// on recalcule alors la distance de défilement.
+let carouselResizeTimer;
+let carouselLastWidth = window.innerWidth;
+window.addEventListener("resize", () => {
+  clearTimeout(carouselResizeTimer);
+  carouselResizeTimer = setTimeout(() => {
+    const crossed = (carouselLastWidth > 768) !== (window.innerWidth > 768);
+    carouselLastWidth = window.innerWidth;
+    if (!crossed) return;
+    document.querySelectorAll(".carousel-track").forEach((track) => {
+      if (track._list && track._list.length) buildCarousel(track, track._list);
+    });
+  }, 200);
+});
 
 // Charge le texte des étapes réalisées dans le bloc du projet
 function loadSteps(project, category) {
