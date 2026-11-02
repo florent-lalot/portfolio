@@ -128,7 +128,13 @@ const images = {
       "img/formation6-11.png",
       "img/formation6-12.png",
     ],
-    projet7: [],
+    projet7: [
+      "img/formation7-1.png",
+      "img/formation7-2.png",
+      "img/formation7-3.png",
+      "img/formation7-4.png",
+      "img/formation7-5.png",
+    ],
     projet8: [],
     projet9: [],
     projet10: [],
@@ -191,7 +197,8 @@ const steps = {
       "Conception d'une base de données relationnelle normalisée (3NF) pour une agence immobilière fictive, à partir de données DVF, INSEE et data.gouv (plus de 34 000 transactions). Modélisation UML, mise en conformité RGPD, déploiement sur Databricks (Unity Catalog, tables Delta) et rédaction de 12 requêtes SQL avancées (CTE, fonctions de fenêtrage) pour analyser le marché immobilier régional.",
     projet6:
       "Fiabilisation et analyse des données d'un caviste : rapprochement de 3 sources (ERP, site e-commerce, table de liaison), correction de 12 types d'anomalies, analyse du CA, des stocks et des marges, et recommandations ERP et RGPD présentées en comité de direction. Python · pandas · Plotly · Seaborn",
-    projet7: "",
+    projet7:
+      "Prototype d’un site pour photographes freelances, développé avec Next.js et React. Galerie de photos et vidéos, tri, likes enregistrés en base, lightbox et formulaire de contact, le tout pensé pour l’accessibilité : navigation complète au clavier, compatibilité avec les lecteurs d’écran, et 100 en accessibilité sur Lighthouse.",
     projet8: "",
     projet9: "",
     projet10: "",
@@ -263,9 +270,10 @@ function buildCarousel(track, list) {
     let distance = 0;
     first.forEach((img) => {
       const h = parseFloat(getComputedStyle(img).height) || 300;
-      const ratio = img.naturalWidth && img.naturalHeight
-        ? img.naturalWidth / img.naturalHeight
-        : 1.5;
+      const ratio =
+        img.naturalWidth && img.naturalHeight
+          ? img.naturalWidth / img.naturalHeight
+          : 1.5;
       distance += h * ratio + gap;
     });
 
@@ -324,7 +332,7 @@ let carouselLastWidth = window.innerWidth;
 window.addEventListener("resize", () => {
   clearTimeout(carouselResizeTimer);
   carouselResizeTimer = setTimeout(() => {
-    const crossed = (carouselLastWidth > 768) !== (window.innerWidth > 768);
+    const crossed = carouselLastWidth > 768 !== window.innerWidth > 768;
     carouselLastWidth = window.innerWidth;
     if (!crossed) return;
     document.querySelectorAll(".carousel-track").forEach((track) => {
